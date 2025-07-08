@@ -1,3 +1,5 @@
 #!/bin/bash
 
-echo "Привет, $USER! Сегодня $(date)"
+USERNAME=${USER:-$(whoami)}
+
+echo "Привет, $USERNAME! Сегодня $(date)"
