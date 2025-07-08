@@ -1,0 +1,20 @@
+name: Docker Build CI
+
+on:
+  push:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Build Docker image
+        run: docker build -t devops-scripts .
+
+      - name: Run container and test hello.sh
+        run: |
+          docker run --rm devops-scripts ./hello.sh
