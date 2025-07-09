@@ -1,0 +1,13 @@
+version: "3.9"
+
+
+services:
+  bash-scripts:
+    build:
+      context: .
+    container_name: devops-bash
+    volumes:
+      - ./logs:/logs
+    environment:
+      TZ: Europe/Moscow
+    command: ./hello.sh
