@@ -27,3 +27,7 @@ jobs:
           context: .
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/devops-scripts:latest
+  
+      - name: Test Docker image output
+        run: |
+          docker run --rm ${{ secrets.DOCKER_USERNAME }}/devops-scripts:latest | grep Привет
